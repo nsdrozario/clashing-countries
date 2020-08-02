@@ -16,5 +16,6 @@ CXXFLAGS=-Wall -Werror -Iinclude/ `$(LUACONF) --include` # SFML headers should a
 obj/%.o: src/%.cpp
 	$(CXX) $< -c -o $@ $(CXXFLAGS)
 
-clashingcountries: src/clashingcountries.cpp
+clashingcountries: src/clashingcountries.cpp src/extend_script.cpp
+	$(CXX) *.o -o clashingcountries $(CXXFLAGS) $(LIBS)
 	
