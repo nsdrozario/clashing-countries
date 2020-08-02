@@ -5,8 +5,10 @@
 lua_State **init_lua_config() {
 
     lua_State *l = luaL_newstate();
-
-    // get variables from configuration script (implement later)
+    
+    for (std::string s : video_settings_keys) {
+        
+    }
 
     return &l;
 
