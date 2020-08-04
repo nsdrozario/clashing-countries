@@ -7,11 +7,8 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> video_settings_keys {
-    "screen_width",
-    "screen_height"
-};
+extern std::vector<std::string> video_settings_keys;
 
-std::map<std::string, int> video_settings;
+extern std::map<std::string, int> video_settings;
 
 #endif

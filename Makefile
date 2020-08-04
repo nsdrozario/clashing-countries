@@ -5,17 +5,25 @@ CXX=g++
 
 # config tools (for automatically generating compiler/linker flags)
 PKGCONF=pkg-config
-LUACONF=lua-config
 
 #linker flags
-LIBS= -lsfml-graphics -lsfml-window -lsfml-system `$(LUACONF) --libs`
+LIBS= -lsfml-graphics -lsfml-window -lsfml-system `$(PKGCONF) lua5.3 --libs`
 
 #compiler flags
-CXXFLAGS=-Wall -Werror -Iinclude/ `$(LUACONF) --include` # SFML headers should already be in /usr/include or any default include paths
+CXXFLAGS=-Wall -Werror -Iinclude/ `$(PKGCONF) lua5.3 --cflags` # SFML headers should already be in /usr/include or any default include paths
+
+all: clean clashingcountries test
 
 obj/%.o: src/%.cpp
 	$(CXX) $< -c -o $@ $(CXXFLAGS)
 
-clashingcountries: src/clashingcountries.cpp src/extend_script.cpp
-	$(CXX) *.o -o clashingcountries $(CXXFLAGS) $(LIBS)
-	
+clashingcountries: obj/clashingcountries.o obj/extend_script.o obj/config_vars.o
+	$(CXX) obj/clashingcountries.o obj/extend_script.o obj/config_vars.o -o clashingcountries $(CXXFLAGS) $(LIBS)
+
+clean:
+	rm -rf obj
+	mkdir obj
+	rm -rf clashingcountries
+
+test: 
+	./clashingcountries

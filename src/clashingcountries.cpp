@@ -4,7 +4,9 @@
 
 int main () {
 
-    
+    init_lua_config();
+
+    std::cout << video_settings["screen_width"] << std::endl;
 
     return 0;
 
