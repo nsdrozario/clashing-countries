@@ -21,4 +21,7 @@ void init_lua_config() {
 
     }
 
+    lua_close(l_state);
+    return;
+    
 }

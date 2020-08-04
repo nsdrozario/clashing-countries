@@ -6,7 +6,7 @@ int main () {
 
     init_lua_config();
 
-    
+    sf::Window w (sf::VideoMode(video_settings["screen_width"], video_settings["screen_height"]), "Clashing Countries");
 
     return 0;
 

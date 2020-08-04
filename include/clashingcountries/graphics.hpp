@@ -3,4 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
+sf::Window gen_window_from_config();
+ 
+
 #endif
