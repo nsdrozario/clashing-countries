@@ -1,6 +1,6 @@
 #include <clashingcountries/configuration.hpp>
 
-std::vector<std::string> video_settings_keys {
+const std::vector<std::string> video_settings_keys {
     "screen_width",
     "screen_height"
 };

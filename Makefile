@@ -17,8 +17,8 @@ all: clean clashingcountries test
 obj/%.o: src/%.cpp
 	$(CXX) $< -c -o $@ $(CXXFLAGS)
 
-clashingcountries: obj/clashingcountries.o obj/extend_script.o obj/config_vars.o
-	$(CXX) obj/clashingcountries.o obj/extend_script.o obj/config_vars.o -o clashingcountries $(CXXFLAGS) $(LIBS)
+clashingcountries: obj/clashingcountries.o obj/extend_script.o obj/config_vars.o obj/window.o obj/graphics.o
+	$(CXX) obj/clashingcountries.o obj/extend_script.o obj/config_vars.o obj/window.o obj/graphics.o -o clashingcountries $(CXXFLAGS) $(LIBS)
 
 clean:
 	rm -rf obj

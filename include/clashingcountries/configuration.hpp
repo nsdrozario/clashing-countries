@@ -7,7 +7,7 @@
 #include <vector>
 #include <string>
 
-extern std::vector<std::string> video_settings_keys;
+extern const std::vector<std::string> video_settings_keys;
 
 extern std::map<std::string, int> video_settings;
 
