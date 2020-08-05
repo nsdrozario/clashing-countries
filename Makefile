@@ -25,5 +25,5 @@ clean:
 	mkdir obj
 	rm -rf clashingcountries
 
-test: 
+test: clashingcountries
 	./clashingcountries
