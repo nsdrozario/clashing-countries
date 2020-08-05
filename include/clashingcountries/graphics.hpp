@@ -13,6 +13,8 @@ bool init_font();
 sf::Window gen_window_from_config();
 sf::Text gen_label(std::string text, int size);
 
+void draw_to_screen();
+
 namespace clc_ui {
 
     class button {

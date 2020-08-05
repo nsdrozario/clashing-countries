@@ -2,11 +2,23 @@
 #include <clashingcountries/graphics.hpp>
 #include <clashingcountries/extend_script.hpp>
 
+sf::RenderWindow w;
+
+void draw_to_screen() {
+
+    sf::Text title = gen_label("Clashing Countries", 60);
+    w.draw(title);
+}
+
 int main () {
 
     init_lua_config();
 
-    sf::RenderWindow w (sf::VideoMode(video_settings["screen_width"], video_settings["screen_height"]), "Clashing Countries");
+    w.create(sf::VideoMode(video_settings["screen_width"], video_settings["screen_height"]), "Clashing Countries");
+
+    if (!init_font()) {
+        std::cout << "error opening font" << std::endl;
+    }
 
     while (w.isOpen()) {
 
@@ -30,7 +42,7 @@ int main () {
 
             w.clear(sf::Color::Black);
 
-    
+            draw_to_screen();
 
             w.display();
 

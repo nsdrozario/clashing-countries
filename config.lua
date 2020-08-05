@@ -1,2 +1,3 @@
 screen_width=640
 screen_height=480
+fullscreen=true
