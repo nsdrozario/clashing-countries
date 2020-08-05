@@ -4,6 +4,11 @@
 namespace clc_cmdlineproc {
 
     // functions to process command line arguments or something
+    void init_args(int argc, char *argv[]) {
+
+        
+
+    }
 
 }
 

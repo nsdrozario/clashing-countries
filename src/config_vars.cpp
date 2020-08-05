@@ -1,9 +1,18 @@
 #include <clashingcountries/configuration.hpp>
 
-const std::vector<std::string> video_settings_keys {
+const std::vector<std::string> settings_ints {
     "screen_width",
     "screen_height"
-   
 };
 
-std::map<std::string, int> video_settings;
+const std::vector<std::string> settings_bools {
+    "fullscreen"
+};
+
+const std::vector<std::string> settings_strings {
+
+};
+
+std::map<std::string, int> int_settings;
+std::map<std::string, bool> bool_settings;
+std::map<std::string, std::string> string_settings;

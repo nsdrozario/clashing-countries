@@ -17,39 +17,42 @@ void draw_to_screen();
 
 namespace clc_ui {
 
-    class button {
+    class compound_ui_element { // class to define GUI elements that have multiple SFML elements
 
         public:
-            
-            void render(sf::Window w);
-            void setColor(sf::Color c);
-            void setXPos(int x);
-            void setYPos(int y);
-            void setPos(int x, int y);
+    
+            void setXPosAbsolute(double x);
+            void setXPosCenter(double x);  
+            void setYPosAbsolute(double y);
+            void setYPosCenter(double y);
+            void setXSize(double x);
+            void setYSize(double x);
+            void setBackgroundColor(sf::Color c);
             void setOutlineColor(sf::Color c);
-            void setOutlineThickness(sf::Color c);
+            void setOutlineThickness(double x);
 
-            // callback event function member is needed
-            
         private:
 
-            int size_x;
-            int size_y;
-            int pos_x;
-            int pos_y;
-            sf::Color color;
-            sf::RectangleShape body;
-            sf::Text label;
-            
-
-    };
-    
-    class input_field {
-        
-        
+            double xpos;
+            double ypos;
+            double x_size;
+            double y_size;
+            sf::Color bg_color;
+            sf::Color outline_color;
 
     };
 
+    class box_label : public compound_ui_element {
+
+    };
+
+    class button : public compound_ui_element {
+
+    };
+
+    class input_field : public compound_ui_element {
+
+    };
 
 }
 

@@ -2,22 +2,24 @@
 #include <clashingcountries/graphics.hpp>
 #include <clashingcountries/extend_script.hpp>
 
+// global vars 
 sf::RenderWindow w;
+sf::Mouse mouse;
 
-void draw_to_screen() {
+void draw_to_screen() { // what to draw on screen
 
     sf::Text title = gen_label("Clashing Countries", 60);
     w.draw(title);
+
 }
 
-int main () {
+int main () { // main thread
 
-    init_lua_config();
+    init_lua_config(); // load config file
+    w.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", (bool_settings["fullscreen"]) ? sf::Style::Default : sf::Style::Fullscreen); // iniitalize window
 
-    w.create(sf::VideoMode(video_settings["screen_width"], video_settings["screen_height"]), "Clashing Countries");
-
-    if (!init_font()) {
-        std::cout << "error opening font" << std::endl;
+    if (!init_font()) { // load font
+        std::cerr << "error opening font" << std::endl;
     }
 
     while (w.isOpen()) {
@@ -36,7 +38,7 @@ int main () {
 
             } else if (e.type == sf::Event::KeyPressed) {
 
-
+                
 
             }
 

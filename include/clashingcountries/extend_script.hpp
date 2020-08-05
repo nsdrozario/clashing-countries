@@ -9,7 +9,6 @@ extern "C" {
 
 #include <clashingcountries/configuration.hpp>
 
-void init_lua_config();
-
+void init_lua_config(); // loads config.lua
 
 #endif
