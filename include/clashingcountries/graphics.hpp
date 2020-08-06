@@ -31,12 +31,12 @@ namespace clc_ui {
             void setOutlineColor(sf::Color c);
             void setOutlineThickness(double x);
 
-            virtual void render() = 0; // this function needs to be overloaded for each gui element
+            virtual void render(); // this function needs to be overloaded for each gui element
 
-        private:
+        protected:
 
-            double xpos;
-            double ypos;
+            float xpos;
+            float ypos;
             double x_size;
             double y_size;
             double outline_thickness;
@@ -47,15 +47,17 @@ namespace clc_ui {
 
     class box_label : public compound_ui_element {
 
-        private:
-            sf::RectangleShape button_body;
-            sf::Text button_label;
+        public:
 
-            
+            virtual void render();
+
+        protected:
+            sf::RectangleShape body;
+            sf::Text label;
 
     };
 
-    class button : public compound_ui_element {
+    class button : public box_label {
 
     };
 
