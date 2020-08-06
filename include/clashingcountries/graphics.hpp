@@ -52,6 +52,7 @@ namespace clc_ui {
             virtual void render(sf::RenderWindow& w);
             void setTextColor(sf::Color c);
             void setTextSize(int x);
+            void setLabelText(std::string text);
 
         protected:
             

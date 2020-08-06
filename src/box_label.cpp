@@ -9,7 +9,11 @@ void box_label::setTextSize(int x) {
     text_size = x;
 }  
 
-void box_label::render(sf::RenderWindow w) {
+void box_label::setLabelText(std::string text) {
+    label.setString(text);
+}
+
+void box_label::render(sf::RenderWindow& w) {
 
     // first update parameters
     body.setFillColor(bg_color);
