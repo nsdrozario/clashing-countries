@@ -11,7 +11,8 @@ void draw_to_screen() { // what to draw on screen
 
     sf::Text title = gen_label("Clashing Countries", 60);
     w.draw(title);
-    test_label.render(w};
+    test_label.render(w);
+
 }
 
 int main () { // main thread
