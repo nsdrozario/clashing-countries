@@ -21,25 +21,25 @@ namespace clc_ui {
 
         public:
     
-            void setXPosAbsolute(double x);
-            void setXPosCenter(double x);  
-            void setYPosAbsolute(double y);
-            void setYPosCenter(double y);
-            void setXSize(double x);
-            void setYSize(double y);
+            void setXPosAbsolute(float x);
+            void setXPosCenter(float x);  
+            void setYPosAbsolute(float y);
+            void setYPosCenter(float y);
+            void setXSize(float x);
+            void setYSize(float y);
             void setBackgroundColor(sf::Color c);
             void setOutlineColor(sf::Color c);
-            void setOutlineThickness(double x);
+            void setOutlineThickness(float x);
 
-            virtual void render(); // this function needs to be overloaded for each gui element
+            virtual void render(sf::RenderWindow w); // this function needs to be overloaded for each gui element
 
         protected:
 
             float xpos;
             float ypos;
-            double x_size;
-            double y_size;
-            double outline_thickness;
+            float x_size;
+            float y_size;
+            float outline_thickness;
             sf::Color bg_color;
             sf::Color outline_color;
 
@@ -49,11 +49,18 @@ namespace clc_ui {
 
         public:
 
-            virtual void render();
+            virtual void render(sf::RenderWindow w);
+            void setTextColor(sf::Color c);
+            void setTextSize(int x);
 
         protected:
+            
+            int text_size;
+            sf::Color text_color;
+
             sf::RectangleShape body;
             sf::Text label;
+
 
     };
 
