@@ -26,10 +26,12 @@ namespace clc_ui {
             void setYPosAbsolute(double y);
             void setYPosCenter(double y);
             void setXSize(double x);
-            void setYSize(double x);
+            void setYSize(double y);
             void setBackgroundColor(sf::Color c);
             void setOutlineColor(sf::Color c);
             void setOutlineThickness(double x);
+
+            virtual void render() = 0; // this function needs to be overloaded for each gui element
 
         private:
 
@@ -37,12 +39,19 @@ namespace clc_ui {
             double ypos;
             double x_size;
             double y_size;
+            double outline_thickness;
             sf::Color bg_color;
             sf::Color outline_color;
 
     };
 
     class box_label : public compound_ui_element {
+
+        private:
+            sf::RectangleShape button_body;
+            sf::Text button_label;
+
+            
 
     };
 
