@@ -31,7 +31,7 @@ namespace clc_ui {
             void setOutlineColor(sf::Color c);
             void setOutlineThickness(float x);
 
-            virtual void render(sf::RenderWindow w); // this function needs to be overloaded for each gui element
+            virtual void render(sf::RenderWindow& w); // this function needs to be overloaded for each gui element
 
         protected:
 
@@ -49,7 +49,7 @@ namespace clc_ui {
 
         public:
 
-            virtual void render(sf::RenderWindow w);
+            virtual void render(sf::RenderWindow& w);
             void setTextColor(sf::Color c);
             void setTextSize(int x);
 
