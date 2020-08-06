@@ -23,7 +23,7 @@ void box_label::render(sf::RenderWindow& w) {
     body.setOutlineThickness(outline_thickness);   
 
     label.setFont(text_font);
-    label.setColor(text_color);
+    label.setFillColor(text_color);
     label.setCharacterSize(text_size);
     label.setPosition(xpos, ypos);
     // now actually draw

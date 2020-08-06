@@ -5,8 +5,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
-#include <functional>
-
 extern sf::Font text_font;
 
 bool init_font();
@@ -31,15 +29,15 @@ namespace clc_ui {
             void setOutlineColor(sf::Color c);
             void setOutlineThickness(float x);
 
-            virtual void render(sf::RenderWindow& w); // this function needs to be overloaded for each gui element
+            virtual void render(sf::RenderWindow& w) = 0; // this function needs to be overloaded for each gui element
 
         protected:
 
-            float xpos;
-            float ypos;
-            float x_size;
-            float y_size;
-            float outline_thickness;
+            float xpos = 0.f;
+            float ypos = 0.f;
+            float x_size = 1.f;
+            float y_size = 1.f;
+            float outline_thickness = 5.0f;
             sf::Color bg_color;
             sf::Color outline_color;
 

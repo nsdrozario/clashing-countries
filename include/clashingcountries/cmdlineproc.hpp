@@ -7,10 +7,10 @@
 
 namespace clc_cmdlineproc {
 
-    static class cmd_args {
+    class cmd_args {
         public:
-            std::map<std::string, std::string> options;
-            std::vector<std::string> args;
+            static std::map<std::string, std::string> options;
+            static std::vector<std::string> args;
     };
 
     // functions to process command line arguments or something
