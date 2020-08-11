@@ -22,7 +22,7 @@ int main () { // main thread
     cmdlineproc::cmd_args c;
     c.set_flag("--no-gui");
     
-    init_lua_config(); // load config file
+    load_config(); // load config file
     
     if (std::find(c.flags.begin(), c.flags.end(), std::string("--no-gui")) != c.flags.end() ) {
 
