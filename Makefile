@@ -10,7 +10,7 @@ PKGCONF=pkg-config
 LIBS= -lsfml-graphics -lsfml-window -lsfml-system `$(PKGCONF) lua5.3 --libs`
 
 #compiler flags
-CXXFLAGS= -Wall -Werror -Iinclude/ `$(PKGCONF) lua5.3 --cflags` # SFML headers should already be in /usr/include or any default include paths
+CXXFLAGS= -Wall -Werror -Iinclude/ `$(PKGCONF) lua5.3 --cflags` `$(PKGCONF) sol2 --cflags`# SFML headers should already be in /usr/include or any default include paths
 
 all: clean clashingcountries
 
