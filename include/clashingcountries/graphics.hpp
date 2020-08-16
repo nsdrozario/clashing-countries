@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <functional>
+#include <queue>
 extern sf::Font text_font;
 
 bool init_font();
@@ -44,7 +45,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
                 textColor = tc;
                 borderThickness = 1.0f;
             }
-            
+
     };
 
     class BaseGui : public sf::Transformable, sf::Drawable {
@@ -52,12 +53,26 @@ namespace clc_ui { // forgive my inconsistent naming conventions
         public:
 
             Style style;
+            bool visible;
+
+            virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+
+    };
+
+    class Container : BaseGui {
+        
+        public:
+            std::priority_queue<BaseGui> elements;
 
     };
 
     class Button : BaseGui {            
 
         public:
+
+            sf::RectangleShape btnBody;
+            sf::Text btnText;
+
             std::function<bool> call; // return success or not
 
     };
@@ -67,9 +82,6 @@ namespace clc_ui { // forgive my inconsistent naming conventions
     };
     
     class Label : BaseGui {
-
-        public:
-            bool BodyVisible;
 
     };
 
