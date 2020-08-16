@@ -1,3 +1,5 @@
+#include <iostream>
+#include <cmdlineproc.hpp>
 #include <clashingcountries.hpp>
 #include <clashingcountries/graphics.hpp>
 #include <clashingcountries/extend_script.hpp>
@@ -17,8 +19,21 @@ void draw_to_screen() { // what to draw on screen
 
 int main () { // main thread
 
-    init_lua_config(); // load config file
-    w.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", (bool_settings["fullscreen"]) ? sf::Style::Default : sf::Style::Fullscreen); // iniitalize window
+    cmdlineproc::cmd_args c;
+    c.set_flag("--no-gui");
+    
+    load_config(); // load config file
+    
+    if (std::find(c.flags.begin(), c.flags.end(), std::string("--no-gui")) != c.flags.end() ) {
+
+        std::cout << "Clashing Countries" << std::endl;    
+        exit(0);
+        
+    } else {
+
+        w.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", (bool_settings["fullscreen"]) ? sf::Style::Default : sf::Style::Fullscreen); // iniitalize window
+    
+    }
 
     if (!init_font()) { // load font
         std::cerr << "error opening font" << std::endl;

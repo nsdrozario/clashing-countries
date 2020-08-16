@@ -1,14 +1,12 @@
 #ifndef CLC_EXTEND_SCRIPT_HPP
 #define CLC_EXTEND_SCRIPT_HPP
 
-extern "C" {
-    #include <lua.h>
-    #include <lualib.h>
-    #include <lauxlib.h>
-}
+#include <sol/sol.hpp>
 
 #include <clashingcountries/configuration.hpp>
 
-void init_lua_config(); // loads config.lua
+void init_lua_config(); // don't use this one
+
+void load_config();
 
 #endif

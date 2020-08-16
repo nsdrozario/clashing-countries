@@ -2,7 +2,8 @@
 #include <clashingcountries/configuration.hpp>
 #include <iostream>
 
-void init_lua_config() {
+
+void init_lua_config() { // don't use this one anymore
 
     lua_State *l_state = luaL_newstate(); // create lua state
 
@@ -42,4 +43,25 @@ void init_lua_config() {
     lua_close(l_state); // close lua state
     return; 
     
+} 
+
+void load_config() {
+
+    sol::state l;
+    l.script_file("config.lua"); // no libraries have been loaded because we only want to read some variables
+
+    for (std::string s : settings_ints) {
+        int_settings[s] = l.get<int>(s);
+    }
+
+    for (std::string s : settings_bools) {
+        bool_settings[s] = l.get<bool>(s);
+    }
+
+    for (std::string s : settings_strings) {
+        string_settings[s] = l.get<std::string>(s);
+    }
+
 }
+
+

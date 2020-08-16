@@ -2,6 +2,7 @@
 #define CLASHINGCOUNTRIES_HPP
 
 #include <vector>
+#include <string>
 
 namespace clashing_countries {
     
@@ -26,16 +27,17 @@ namespace clashing_countries {
         public:
             int Mana;
             int Defense;
-
-
-
-
+            std::string name;
+        
+            void Attack(Entity e);
+            vector<Powerup> powers;
+        
     };
 
     class Powerup : public Entity {
 
         public:
-            
+                
 
     };
 
