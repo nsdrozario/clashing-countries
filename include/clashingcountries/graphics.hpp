@@ -16,7 +16,42 @@ void draw_to_screen();
 
 namespace clc_ui { // forgive my inconsistent naming conventions
 
+    class Style {
+
+        public:
+            sf::Color outlineColor;
+            sf::Color backgroundColor;
+            sf::Color textColor;
+            sf::Font *font;
+
+            float borderThickness;
+
+            bool outlineVisible;
+            bool bodyVisible;
+
+            Style(sf::Font *f, sf::Color bc, sf::Color tc, sf::Color oc, float b) {
+                font = f;
+                outlineColor = oc;
+                backgroundColor = bc;
+                textColor = tc;
+                borderThickness = b;
+            }
+            
+            Style(sf::Font *f, sf::Color bc, sf::Color tc) {
+                font = f;
+                outlineColor = sf::Color(0,0,0,255);
+                backgroundColor = bc;
+                textColor = tc;
+                borderThickness = 1.0f;
+            }
+            
+    };
+
     class BaseGui : public sf::Transformable, sf::Drawable {
+
+        public:
+
+            Style style;
 
     };
 
