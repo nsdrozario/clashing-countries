@@ -1,5 +1,3 @@
-.PHONY: clean
-
 # compiler
 CXX=g++
 
@@ -12,18 +10,17 @@ LIBS= -lsfml-graphics -lsfml-window -lsfml-system `$(PKGCONF) lua5.3 --libs`
 #compiler flags
 CXXFLAGS= -Wall -Werror -Iinclude/ `$(PKGCONF) lua5.3 --cflags` `$(PKGCONF) sol2 --cflags`# SFML headers should already be in /usr/include or any default include paths
 
-all: clean clashingcountries
+src=$(wildcard src/*.cpp) \
+	$(wildcard src/gui/*.cpp)
 
-obj/%.o: src/%.cpp
-	$(CXX) $< -c -o $@ $(CXXFLAGS)
+obj = $(src:.cpp=.o)
 
-clashingcountries: obj/clashingcountries.o obj/extend_script.o obj/config_vars.o obj/compound_ui_element.o obj/box_label.o obj/graphics.o
-	$(CXX) obj/clashingcountries.o obj/extend_script.o obj/config_vars.o obj/compound_ui_element.o obj/box_label.o obj/graphics.o -o clashingcountries $(CXXFLAGS) $(LIBS)
+.PHONY: clashingcountries
+clashingcountries: $(obj)
+	$(CXX) $^ -o $@ $(LIBS)
 
+
+.PHONY: clean
 clean:
-	rm -rf obj
-	mkdir obj
-	rm -rf clashingcountries
-
-test: clashingcountries
-	./clashingcountries
+	rm -rf *.o
+	rm -rf *.exe
