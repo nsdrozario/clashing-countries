@@ -55,14 +55,15 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             Style style;
             bool visible;
 
-            virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-
     };
 
     class Container : BaseGui {
         
         public:
             std::priority_queue<BaseGui> elements;
+
+            virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+
 
     };
 
@@ -82,6 +83,14 @@ namespace clc_ui { // forgive my inconsistent naming conventions
     };
     
     class Label : BaseGui {
+        public:
+
+            sf::RectangleShape labelBody;
+            sf::Text labelText;
+
+            Label(Style s, std::string text);
+
+            virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
     };
 
