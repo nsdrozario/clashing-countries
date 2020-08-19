@@ -61,7 +61,8 @@ namespace clc_ui { // forgive my inconsistent naming conventions
         
         public:
             std::priority_queue<BaseGui> elements;
-
+        
+        private:
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 
@@ -89,7 +90,8 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             sf::Text labelText;
 
             Label(Style s, std::string text);
-
+        
+        private:
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
     };
