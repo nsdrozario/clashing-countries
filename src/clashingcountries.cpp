@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 #include <cmdlineproc.hpp>
 #include <clashingcountries.hpp>
 #include <clashingcountries/graphics.hpp>
@@ -15,6 +16,29 @@ void draw_to_screen() { // what to draw on screen
     w.draw(title);
     test_label.render(w);
 
+}
+
+void lua_thread() {
+
+    sol::state l;
+    
+    // importing classes into lua
+    
+    // Entity class
+    sol::constructors<clashing_countries::Entity()> entity_constructors();
+    sol::usertype<clashing_countries::Entity> entity = l.new_usertype<clashing_countries::Entity>("Entity", entity_constructors);
+    entity["HP"] = &clashing_countries::Entity::HP;
+    entity["Attack"] = &clashing_countries::Entity::Attack;
+    
+    // Player class
+    sol::constructors<clashing_countries::Player()> player_constructors();
+    sol::usertype<clashing_countries::Player> player = l.new_usertype<clashing_countries::Player>("Player", player_constructors);
+    player["HP"] = &clashing_countries::Player::HP;
+    player["Attack"] = &clashing_countries::Player::Attack;
+    player["Mana"] = &clashing_countries::Player::Mana;
+    player["Defense"] = &clashing_coutnries::Player::Defense;
+    // I don't want to register the vector of powerups yet I haven't read enough documentation to confirm that's how it works
+    
 }
 
 int main () { // main thread
