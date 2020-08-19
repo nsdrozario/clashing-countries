@@ -20,6 +20,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
     class Style {
 
         public:
+        
             sf::Color outlineColor;
             sf::Color backgroundColor;
             sf::Color textColor;
@@ -60,9 +61,11 @@ namespace clc_ui { // forgive my inconsistent naming conventions
     class Container : BaseGui {
         
         public:
+        
             std::priority_queue<BaseGui> elements;
         
         private:
+        
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 
@@ -92,6 +95,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             Label(Style s, std::string text);
         
         private:
+        
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
     };
