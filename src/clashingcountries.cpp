@@ -10,7 +10,7 @@ sf::RenderWindow w;
 sf::Mouse mouse;
 
 void lua_thread() {
-
+    /*
     sol::state l;
     
     // importing classes into lua
@@ -22,14 +22,14 @@ void lua_thread() {
     entity["Attack"] = &clashing_countries::Entity::Attack;
     
     // Player class
-    sol::constructors<clashing_countries::Player()> player_constructors();
+    sol::constructors<clashing_countries::Player> player_constructors();
     sol::usertype<clashing_countries::Player> player = l.new_usertype<clashing_countries::Player>("Player", player_constructors);
     player["HP"] = &clashing_countries::Player::HP;
     player["Attack"] = &clashing_countries::Player::Attack;
     player["Mana"] = &clashing_countries::Player::Mana;
-    player["Defense"] = &clashing_coutnries::Player::Defense;
+    player["Defense"] = &clashing_countries::Player::Defense;
     // I don't want to register the vector of powerups yet I haven't read enough documentation to confirm that's how it works
-    
+    */
 }
 
 int main () { // main thread
@@ -54,7 +54,7 @@ int main () { // main thread
         std::cerr << "error opening font" << std::endl;
     }
 
-    clc_ui::Style s(&text_font, sf::Color(50,50,50,255), sf::Color(255,0,255,255));
+    clc_ui::Style s(&text_font, sf::Color(50,50,50,255), sf::Color(150,200,255,255));
     clc_ui::Label label(s, "Clashing Countries");
     
     while (w.isOpen()) {
