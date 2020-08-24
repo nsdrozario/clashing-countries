@@ -6,12 +6,7 @@
 
 namespace clashing_countries {
     
-    class Game {
-
-        public:
-            static std::vector<Player> players; 
-            
-    };
+    
 
     class Entity {
 
@@ -29,8 +24,8 @@ namespace clashing_countries {
             int Defense;
             std::string name;
         
-            void Attack(Entity e);
-            vector<Powerup> powers;
+            // void Attack(Entity e);
+            std::vector<Powerup> powers;
         
     };
 
@@ -41,6 +36,12 @@ namespace clashing_countries {
 
     };
 
+    class Game {
+
+        public:
+            static std::vector<Player> players; 
+            
+    };
 }
 
 #endif

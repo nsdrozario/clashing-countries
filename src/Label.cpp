@@ -1,7 +1,7 @@
 #include <clashingcountries/graphics.hpp>
 using namespace clc_ui;
 
-Label::Label(Style s, std::string text) {
+Label::Label(Style s, std::string text){
 
     style = s;
 

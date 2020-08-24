@@ -30,6 +30,14 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             bool outlineVisible;
             bool bodyVisible;
 
+            Style() {
+                font = &text_font;
+                outlineColor = sf::Color(255,255,255,255);
+                backgroundColor = sf::Color(0,0,0,255);
+                textColor = sf::Color(255,255,255,255);
+                borderThickness = 1.0f;
+            }
+
             Style(sf::Font *f, sf::Color bc, sf::Color tc, sf::Color oc, float b) {
                 font = f;
                 outlineColor = oc;
@@ -48,13 +56,14 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
     };
 
-    class BaseGui : public sf::Transformable, sf::Drawable {
+    class BaseGui : public sf::Transformable, public sf::Drawable {
 
         public:
 
             Style style;
-            bool visible;
-
+            bool visible = true;
+            
+            BaseGui();
     };
 
     class Container : BaseGui {
@@ -73,8 +82,8 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
             sf::RectangleShape btnBody;
             sf::Text btnText;
-
-            std::function<bool> call; // return success or not
+            
+          //  std::function<bool> call; // return success or not
 
     };
 
@@ -82,7 +91,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
     };
     
-    class Label : BaseGui {
+    class Label : public BaseGui {
         public:
 
             sf::RectangleShape labelBody;

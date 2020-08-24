@@ -1,21 +1,12 @@
 #include <iostream>
 #include <cmdlineproc.hpp>
-#include <clashingcountries.hpp>
+// #include <clashingcountries.hpp>
 #include <clashingcountries/graphics.hpp>
 #include <clashingcountries/extend_script.hpp>
 
 // global vars 
 sf::RenderWindow w;
 sf::Mouse mouse;
-clc_ui::box_label test_label;
-
-void draw_to_screen() { // what to draw on screen
-
-    sf::Text title = gen_label("Clashing Countries", 60);
-    w.draw(title);
-    test_label.render(w);
-
-}
 
 int main () { // main thread
 
@@ -39,14 +30,9 @@ int main () { // main thread
         std::cerr << "error opening font" << std::endl;
     }
 
-    test_label.setLabelText("Hello World");
-    test_label.setBackgroundColor(sf::Color(0,0,0,75));
-    test_label.setOutlineColor(sf::Color(0,0,255,255));
-    test_label.setOutlineThickness(5.0f);
-    test_label.setXPosAbsolute(100);
-    test_label.setYPosAbsolute(100);
-    test_label.setTextColor(sf::Color(255,255,255,255));
-
+    clc_ui::Style s(&text_font, sf::Color(50,50,50,255), sf::Color(255,0,255,255));
+    clc_ui::Label label(s, "Clashing Countries");
+    
     while (w.isOpen()) {
 
         sf::Event e;
@@ -69,7 +55,7 @@ int main () { // main thread
 
             w.clear(sf::Color::Black);
 
-            draw_to_screen();
+            w.draw(label);
 
             w.display();
 
