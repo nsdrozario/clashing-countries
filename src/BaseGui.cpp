@@ -6,5 +6,6 @@ BaseGui::BaseGui() {
 
     style = Style();
     visible = true;
+    padding = 10.0;
 
 }

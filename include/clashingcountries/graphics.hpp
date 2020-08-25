@@ -63,7 +63,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
             Style style;
             bool visible = true;
-            float padding;
+            float padding = 10.0f;
 
             BaseGui();
     };
@@ -78,17 +78,6 @@ namespace clc_ui { // forgive my inconsistent naming conventions
         
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-
-    };
-
-    class Button : BaseGui {            
-
-        public:
-
-            sf::RectangleShape btnBody;
-            sf::Text btnText;
-            
-          //  std::function<bool> call; // return success or not
 
     };
 
@@ -113,6 +102,20 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
     };
 
+    class Button : public BaseGui, public Label {            
+
+        public:
+            
+            std::function<void()> callback; 
+
+            void setBodyHightlightColor(sf::Color c);
+            void setTextHighlightColor(sf::Color c);
+
+        private:
+            sf::Color bodyHighlightedColor;
+            sf::Color textHighlightedColor;
+
+    };
 
 }
 
