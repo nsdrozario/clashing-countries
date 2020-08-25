@@ -1,3 +1,3 @@
-screen_width=1920
-screen_height=1080
-fullscreen=true
+screen_width=1024
+screen_height=768
+fullscreen=false

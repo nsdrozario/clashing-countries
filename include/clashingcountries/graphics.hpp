@@ -63,7 +63,8 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
             Style style;
             bool visible = true;
-            
+            float padding;
+
             BaseGui();
     };
 
@@ -102,7 +103,10 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             sf::Text labelText;
 
             Label(Style s, std::string text);
-        
+
+            void setText(std::string text);
+            void setPadding(float p);
+
         private:
         
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

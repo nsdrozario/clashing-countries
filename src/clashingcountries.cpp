@@ -46,7 +46,7 @@ int main () { // main thread
         
     } else {
 
-        w.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", (bool_settings["fullscreen"]) ? sf::Style::Default : sf::Style::Fullscreen); // iniitalize window
+        w.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", (bool_settings["fullscreen"]) ? sf::Style::Fullscreen : sf::Style::Default); // iniitalize window
     
     }
 
@@ -56,7 +56,8 @@ int main () { // main thread
 
     clc_ui::Style s(&text_font, sf::Color(50,50,50,255), sf::Color(150,200,255,255));
     clc_ui::Label label(s, "Clashing Countries");
-    
+    label.setPadding(10.0f);
+
     while (w.isOpen()) {
 
         sf::Event e;
