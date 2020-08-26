@@ -103,7 +103,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
     };
 
-    class Button : public BaseGui, public Label {            
+    class Button : public Label {            
 
         public:
 
