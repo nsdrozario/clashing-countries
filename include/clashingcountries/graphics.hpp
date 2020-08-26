@@ -91,6 +91,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             sf::RectangleShape labelBody;
             sf::Text labelText;
 
+            Label();
             Label(Style s, std::string text);
 
             void setText(std::string text);
@@ -105,13 +106,19 @@ namespace clc_ui { // forgive my inconsistent naming conventions
     class Button : public BaseGui, public Label {            
 
         public:
-            
+
             std::function<void()> callback; 
+
+            using Label::Label;
+            Button(Style s, std::string text, std::function<void()> f);
 
             void setBodyHightlightColor(sf::Color c);
             void setTextHighlightColor(sf::Color c);
 
+            
+
         private:
+            virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
             sf::Color bodyHighlightedColor;
             sf::Color textHighlightedColor;
 

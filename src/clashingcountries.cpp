@@ -7,7 +7,6 @@
 
 // global vars 
 sf::RenderWindow w;
-sf::Mouse mouse;
 
 void lua_thread() {
     /*

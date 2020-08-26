@@ -10,7 +10,7 @@ LIBS= -lsfml-graphics -lsfml-window -lsfml-system `$(PKGCONF) lua5.3 --libs`
 #compiler flags
 CXXFLAGS= -Wall -Werror -Iinclude/ `$(PKGCONF) lua5.3 --cflags` `$(PKGCONF) sol2 --cflags` -std=c++17# SFML headers should already be in /usr/include or any default include paths
 
-OBJ= obj/clashingcountries.o obj/config_vars.o obj/extend_script.o obj/graphics.o obj/Container.o obj/Label.o obj/BaseGui.o
+OBJ= obj/clashingcountries.o obj/config_vars.o obj/extend_script.o obj/graphics.o obj/Container.o obj/Label.o obj/BaseGui.o obj/Button.o
 
 obj/%.o: src/%.cpp
 	$(CXX) $< -c -o $@ $(CXXFLAGS)
