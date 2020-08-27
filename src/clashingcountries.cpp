@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include <queue>
 #include <cmdlineproc.hpp>
 // #include <clashingcountries.hpp>
 #include <clashingcountries/graphics.hpp>
@@ -7,6 +8,7 @@
 
 // global vars 
 sf::RenderWindow w;
+std::vector<clc_ui::BaseGui *> RenderQueue; // probably going to change this to use smart pointers later
 
 void lua_thread() {
     /*
@@ -29,6 +31,14 @@ void lua_thread() {
     player["Defense"] = &clashing_countries::Player::Defense;
     // I don't want to register the vector of powerups yet I haven't read enough documentation to confirm that's how it works
     */
+}
+
+void render() {
+
+    for (clc_ui::BaseGui *g : RenderQueue) {
+        w.draw(*g);
+    }
+
 }
 
 int main () { // main thread
@@ -79,7 +89,7 @@ int main () { // main thread
 
             w.clear(sf::Color::Black);
 
-            w.draw(label);
+            w.draw(label); 
 
             w.display();
 

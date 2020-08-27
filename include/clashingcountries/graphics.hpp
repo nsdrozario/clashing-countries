@@ -107,17 +107,17 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
         public:
 
-            std::function<void()> callback; 
+            std::function<void(Button&)> *callback; 
 
-            using Label::Label;
-            Button(Style s, std::string text, std::function<void()> f);
+            // using Label::Label;
+            Button();
+            Button(Style s, std::string text, std::function<void(Button&)> *f);
 
             void setBodyHightlightColor(sf::Color c);
             void setTextHighlightColor(sf::Color c);
 
-            
-
         private:
+            void updateColor();
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
             sf::Color bodyHighlightedColor;
             sf::Color textHighlightedColor;

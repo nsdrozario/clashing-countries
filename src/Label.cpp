@@ -10,7 +10,6 @@ Label::Label() {
 
     labelText.setFont(*style.font);
     labelText.setFillColor(style.textColor);
-    sf::FloatRect text_size = labelText.getGlobalBounds();
     labelBody.setSize(sf::Vector2f(100.0f, 50.0f));
 
 }
