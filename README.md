@@ -6,5 +6,5 @@ This is a turn-based multiplayer strategy game, extensible using scripting.
 
 Requires:
 - Lua 5.3
-- SFML
+- SFML 2.5
 - Sol3
