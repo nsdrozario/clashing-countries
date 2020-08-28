@@ -96,6 +96,8 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
             void setText(std::string text);
             void setPadding(float p);
+            virtual void setPosition(float x, float y);
+            virtual void setPosition(const sf::Vector2f& position);
 
         private:
         

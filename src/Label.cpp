@@ -46,6 +46,20 @@ void Label::setPadding(float p) {
 
 }
 
+void Label::setPosition(float x, float y) {
+
+    labelBody.setPosition(x,y);
+    labelText.setPosition(x,y);
+
+}
+
+void Label::setPosition(const sf::Vector2f& position) {
+
+    labelBody.setPosition(position);
+    labelText.setPosition(position);
+
+}
+
 void Label::draw(sf::RenderTarget &t, sf::RenderStates s) const {
 
     if (!visible) {

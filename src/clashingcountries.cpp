@@ -65,6 +65,8 @@ int main () { // main thread
 
     clc_ui::Style s(&text_font, sf::Color(50,50,50,255), sf::Color(150,200,255,255));
     clc_ui::Label label(s, "Clashing Countries");
+    clc_ui::Button b;
+    b.setPosition(sf::Vector2f(0.0f, 400.0f));
     label.setPadding(10.0f);
 
     while (w.isOpen()) {
@@ -90,7 +92,8 @@ int main () { // main thread
             w.clear(sf::Color::Black);
 
             w.draw(label); 
-
+            w.draw(b);
+            
             w.display();
 
         }
