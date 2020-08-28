@@ -54,9 +54,19 @@ int main () { // main thread
         exit(0);
         
     } else {
-
-        w.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", (bool_settings["fullscreen"]) ? sf::Style::Fullscreen : sf::Style::Default); // iniitalize window
     
+        if (bool_settings["fullscreen"]) {
+            
+            // get display resolution
+            w.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Clashing Countries", sf::Style::Fullscreen);
+
+        } else {
+    
+            // use set resolution
+            w.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", sf::Style::Default);
+
+        }
+
     }
 
     if (!init_font()) { // load font
@@ -67,6 +77,7 @@ int main () { // main thread
     clc_ui::Label label(s, "Clashing Countries");
     clc_ui::Button b;
     b.setPosition(sf::Vector2f(0.0f, 400.0f));
+    b.setText("Start");
     label.setPadding(10.0f);
 
     while (w.isOpen()) {
@@ -85,7 +96,6 @@ int main () { // main thread
 
             } else if (e.type == sf::Event::KeyPressed) {
 
-                
 
             }
 
@@ -93,7 +103,7 @@ int main () { // main thread
 
             w.draw(label); 
             w.draw(b);
-            
+
             w.display();
 
         }
