@@ -7,7 +7,7 @@
 #include <clashingcountries/extend_script.hpp>
 
 // global vars 
-sf::RenderWindow w;
+sf::RenderWindow renderTarget;
 std::vector<clc_ui::BaseGui *> RenderQueue; // probably going to change this to use smart pointers later
 
 void lua_thread() {
@@ -36,7 +36,7 @@ void lua_thread() {
 void render() {
 
     for (clc_ui::BaseGui *g : RenderQueue) {
-        w.draw(*g);
+        renderTarget.draw(*g);
     }
 
 }
@@ -58,12 +58,12 @@ int main () { // main thread
         if (bool_settings["fullscreen"]) {
             
             // get display resolution
-            w.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Clashing Countries", sf::Style::Fullscreen);
+            renderTarget.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Clashing Countries", sf::Style::Fullscreen);
 
         } else {
     
             // use set resolution
-            w.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", sf::Style::Default);
+            renderTarget.create(sf::VideoMode(int_settings["screen_width"], int_settings["screen_height"]), "Clashing Countries", sf::Style::Default);
 
         }
 
@@ -80,15 +80,15 @@ int main () { // main thread
     b.setText("Start");
     label.setPadding(10.0f);
 
-    while (w.isOpen()) {
+    while (renderTarget.isOpen()) {
 
         sf::Event e;
         
-        while (w.pollEvent(e)) {
+        while (renderTarget.pollEvent(e)) {
 
             if (e.type == sf::Event::Closed) {
 
-                w.close();
+                renderTarget.close();
             
             } else if (e.type == sf::Event::MouseButtonPressed) {
 
@@ -99,12 +99,12 @@ int main () { // main thread
 
             }
 
-            w.clear(sf::Color::Black);
+            renderTarget.clear(sf::Color::Black);
 
-            w.draw(label); 
-            w.draw(b);
+            renderTarget.draw(label); 
+            renderTarget.draw(b);
 
-            w.display();
+            renderTarget.display();
 
         }
 

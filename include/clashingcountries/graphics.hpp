@@ -7,6 +7,7 @@
 #include <string>
 #include <functional>
 #include <queue>
+
 extern sf::Font text_font;
 
 bool init_font();
@@ -16,6 +17,20 @@ sf::Text gen_label(std::string text, int size);
 void draw_to_screen();
 
 namespace clc_ui { // forgive my inconsistent naming conventions
+
+    class RelativeCoordinates {
+
+        public:
+
+            float x; // range from 0-1 as ratio of screen size
+            float y;
+
+            RelativeCoordinates();
+            RelativeCoordinates(float x, float y);
+
+            sf::Vector2f getVector() const;
+
+    };
 
     class Style {
 
@@ -127,5 +142,8 @@ namespace clc_ui { // forgive my inconsistent naming conventions
     };
 
 }
+
+extern sf::RenderWindow renderTarget;
+extern std::vector<clc_ui::BaseGui *> RenderQueue; // probably going to change this to use smart pointers later
 
 #endif
