@@ -83,9 +83,9 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
             BaseGui();
 
-            virtual void MouseEvent()=0;
-            virtual void KeyboardEvent()=0;
-            
+            virtual void MouseEvent();
+            virtual void KeyboardEvent();
+
     };
 
     class Container : BaseGui {
