@@ -76,7 +76,7 @@ int main () { // main thread
     clc_ui::Style s(&text_font, sf::Color(50,50,50,255), sf::Color(150,200,255,255));
     clc_ui::Label label(s, "Clashing Countries");
     clc_ui::Button b;
-    b.setPosition(sf::Vector2f(0.0f, 400.0f));
+    b.setPosition(clc_ui::RelativeCoordinates(0.5, 0.5));
     b.setText("Start");
     label.setPadding(10.0f);
 

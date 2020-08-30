@@ -79,8 +79,13 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             Style style;
             bool visible = true;
             float padding = 10.0f;
+            RelativeCoordinates relativePosition;
 
             BaseGui();
+
+            virtual void MouseEvent()=0;
+            virtual void KeyboardEvent()=0;
+            
     };
 
     class Container : BaseGui {
@@ -113,6 +118,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             void setPadding(float p);
             virtual void setPosition(float x, float y);
             virtual void setPosition(const sf::Vector2f& position);
+            virtual void setPosition(RelativeCoordinates position);
 
         private:
         

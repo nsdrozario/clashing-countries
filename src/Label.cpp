@@ -60,6 +60,14 @@ void Label::setPosition(const sf::Vector2f& position) {
 
 }
 
+void Label::setPosition(RelativeCoordinates position) {
+
+    relativePosition = position;
+    labelBody.setPosition(position.getVector());
+    labelText.setPosition(position.getVector());
+    
+}
+
 void Label::draw(sf::RenderTarget &t, sf::RenderStates s) const {
 
     if (!visible) {
