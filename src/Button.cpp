@@ -1,5 +1,24 @@
 #include <clashingcountries/graphics.hpp>
+#include <iostream>
 using namespace clc_ui;
+
+void Button::setBodyHighlightColor(sf::Color c) {
+
+    bodyHighlightedColor = c;
+
+}
+
+void Button::setTextHighlightColor(sf::Color c) {
+
+    textHighlightedColor = c;
+
+}
+
+sf::FloatRect Button::getGlobalBounds() const {
+
+    return labelBody.getGlobalBounds();
+
+}
 
 Button::Button() {
 
@@ -36,17 +55,25 @@ Button::Button(Style s, std::string text, std::function<void(Button&)> *f) {
 
 void Button::updateColor() { // this needs to be called by some rendering function
 
-    if (labelBody.getGlobalBounds().contains((float) sf::Mouse::getPosition().x, (float) sf::Mouse::getPosition().y)) {
+    if (hovered) {
 
         labelBody.setFillColor(bodyHighlightedColor);
         labelText.setFillColor(textHighlightedColor);
 
+        std::cout << "hovered" << std::endl;
+
     } else {
 
         labelBody.setFillColor(style.backgroundColor);
-        labelBody.setFillColor(style.textColor);
+        labelText.setFillColor(style.textColor);
 
     }
+
+}
+
+void Button::MouseHoverEvent() {
+
+    updateColor();
 
 }
 

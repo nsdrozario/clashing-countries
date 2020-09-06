@@ -78,13 +78,17 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
             Style style;
             bool visible = true;
+            bool hovered = false;
             float padding = 10.0f;
+            int z_index = 0;
             RelativeCoordinates relativePosition;
 
             BaseGui();
 
-            virtual void MouseEvent();
-            virtual void KeyboardEvent();
+            virtual sf::FloatRect getGlobalBounds() const=0;
+            virtual void MouseClickEvent()=0;
+            virtual void MouseHoverEvent()=0;
+            virtual void KeyboardEvent()=0;
 
     };
 
@@ -120,6 +124,12 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             virtual void setPosition(const sf::Vector2f& position);
             virtual void setPosition(RelativeCoordinates position);
 
+            virtual void MouseClickEvent();
+            virtual void MouseHoverEvent();
+            virtual void KeyboardEvent();
+
+            virtual sf::FloatRect getGlobalBounds() const;
+
         private:
         
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
@@ -136,8 +146,10 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             Button();
             Button(Style s, std::string text, std::function<void(Button&)> *f);
 
-            void setBodyHightlightColor(sf::Color c);
+            void setBodyHighlightColor(sf::Color c);
             void setTextHighlightColor(sf::Color c);
+            void MouseHoverEvent();
+            virtual sf::FloatRect getGlobalBounds() const;
 
         private:
             void updateColor();

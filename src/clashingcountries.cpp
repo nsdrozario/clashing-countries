@@ -76,9 +76,15 @@ int main () { // main thread
     clc_ui::Style s(&text_font, sf::Color(50,50,50,255), sf::Color(150,200,255,255));
     clc_ui::Label label(s, "Clashing Countries");
     clc_ui::Button b;
+
     b.setPosition(clc_ui::RelativeCoordinates(0.5, 0.5));
     b.setText("Start");
     label.setPadding(10.0f);
+
+    b.setBodyHighlightColor(sf::Color(200,255,255));
+
+    // RenderQueue.push_back(&label);
+    RenderQueue.push_back(&b);
 
     while (renderTarget.isOpen()) {
 
@@ -86,20 +92,42 @@ int main () { // main thread
         
         while (renderTarget.pollEvent(e)) {
 
+            renderTarget.clear(sf::Color::Black);
+
             if (e.type == sf::Event::Closed) {
 
                 renderTarget.close();
             
             } else if (e.type == sf::Event::MouseButtonPressed) {
 
-
-
             } else if (e.type == sf::Event::KeyPressed) {
 
 
-            }
+            } else if (e.type == sf::Event::MouseMoved) {
 
-            renderTarget.clear(sf::Color::Black);
+                for (clc_ui::BaseGui * g : RenderQueue) {
+
+                    std::cout << "mouse moved" << std::endl;
+
+                    float x = sf::Mouse::getPosition().x;
+                    float y = sf::Mouse::getPosition().y;
+
+                    sf::FloatRect bounds = g->getGlobalBounds();
+                    bool hovered = bounds.contains(sf::Vector2f(x,y));
+
+                    sf::RectangleShape boundingbox (sf::Vector2f(bounds.width, bounds.height));
+                    boundingbox.setPosition(boundingbox.getPosition());
+
+                    renderTarget.draw(boundingbox);
+
+                    if (hovered != g->hovered) {
+                        g->hovered = hovered;
+                        g->MouseHoverEvent();
+                    }
+
+                }
+
+            }
 
             renderTarget.draw(label); 
             renderTarget.draw(b);

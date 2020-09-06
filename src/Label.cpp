@@ -68,6 +68,24 @@ void Label::setPosition(RelativeCoordinates position) {
     
 }
 
+sf::FloatRect Label::getGlobalBounds() const {
+
+    return labelBody.getGlobalBounds();
+
+}
+
+void Label::MouseClickEvent() {
+    // nothing
+}
+
+void Label::MouseHoverEvent() {
+    // nothing
+}
+
+void Label::KeyboardEvent() {
+    // nothing
+}
+
 void Label::draw(sf::RenderTarget &t, sf::RenderStates s) const {
 
     if (!visible) {
