@@ -59,9 +59,7 @@ void Button::updateColor() { // this needs to be called by some rendering functi
 
         labelBody.setFillColor(bodyHighlightedColor);
         labelText.setFillColor(textHighlightedColor);
-
-        std::cout << "hovered" << std::endl;
-
+        
     } else {
 
         labelBody.setFillColor(style.backgroundColor);
@@ -76,6 +74,11 @@ void Button::MouseHoverEvent() {
     updateColor();
 
 }
+
+sf::Vector2f Button::getPosition() const {
+    return labelBody.getPosition();
+}
+
 
 void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 

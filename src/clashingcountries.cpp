@@ -102,23 +102,14 @@ int main () { // main thread
 
             } else if (e.type == sf::Event::KeyPressed) {
 
-
             } else if (e.type == sf::Event::MouseMoved) {
 
-                for (clc_ui::BaseGui * g : RenderQueue) {
-
-                    std::cout << "mouse moved" << std::endl;
-
-                    float x = sf::Mouse::getPosition().x;
-                    float y = sf::Mouse::getPosition().y;
-
+                for (clc_ui::BaseGui *g : RenderQueue) {
+                    
+                    float x = (float) sf::Mouse::getPosition(renderTarget).x;
+                    float y = (float) sf::Mouse::getPosition(renderTarget).y;
                     sf::FloatRect bounds = g->getGlobalBounds();
-                    bool hovered = bounds.contains(sf::Vector2f(x,y));
-
-                    sf::RectangleShape boundingbox (sf::Vector2f(bounds.width, bounds.height));
-                    boundingbox.setPosition(boundingbox.getPosition());
-
-                    renderTarget.draw(boundingbox);
+                    bool hovered = bounds.contains(x, y);
 
                     if (hovered != g->hovered) {
                         g->hovered = hovered;

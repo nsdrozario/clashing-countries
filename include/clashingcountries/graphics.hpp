@@ -118,12 +118,17 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             Label();
             Label(Style s, std::string text);
 
+            // setters
             void setText(std::string text);
             void setPadding(float p);
             virtual void setPosition(float x, float y);
             virtual void setPosition(const sf::Vector2f& position);
             virtual void setPosition(RelativeCoordinates position);
 
+            // getters
+            virtual sf::Vector2f getPosition() const;
+
+            // event handlers
             virtual void MouseClickEvent();
             virtual void MouseHoverEvent();
             virtual void KeyboardEvent();
@@ -151,6 +156,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
             void MouseHoverEvent();
             virtual sf::FloatRect getGlobalBounds() const;
 
+            virtual sf::Vector2f getPosition() const;
         private:
             void updateColor();
             virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

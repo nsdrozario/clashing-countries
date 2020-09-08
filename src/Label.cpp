@@ -68,6 +68,10 @@ void Label::setPosition(RelativeCoordinates position) {
     
 }
 
+sf::Vector2f Label::getPosition() const {
+    return labelBody.getPosition();
+}
+
 sf::FloatRect Label::getGlobalBounds() const {
 
     return labelBody.getGlobalBounds();
