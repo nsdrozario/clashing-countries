@@ -35,7 +35,7 @@ Button::Button() {
 
 }
 
-Button::Button(Style s, std::string text, std::function<void(Button&)> *f) {
+Button::Button(Style s, std::string text="Default text") {
 
     style = s;
 
@@ -49,7 +49,7 @@ Button::Button(Style s, std::string text, std::function<void(Button&)> *f) {
     sf::FloatRect text_size = labelText.getGlobalBounds();
     labelBody.setSize(sf::Vector2f(text_size.width, text_size.height));
 
-    callback = f;
+
 
 }
 

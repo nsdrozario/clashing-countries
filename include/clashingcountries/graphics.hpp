@@ -149,7 +149,7 @@ namespace clc_ui { // forgive my inconsistent naming conventions
 
             // using Label::Label;
             Button();
-            Button(Style s, std::string text, std::function<void(Button&)> *f);
+            Button(Style s, std::string text);
 
             void setBodyHighlightColor(sf::Color c);
             void setTextHighlightColor(sf::Color c);
