@@ -76,15 +76,21 @@ int main () { // main thread
     clc_ui::Style s(&text_font, sf::Color(50,50,50,255), sf::Color(150,200,255,255));
     clc_ui::Label label(s, "Clashing Countries");
     clc_ui::Button b;
+    clc_ui::Button options;
+
     label.setPosition(clc_ui::RelativeCoordinates(0.4,0));
     b.setPosition(clc_ui::RelativeCoordinates(0.5, 0.5));
     b.setText("Start");
+    options.setPosition(clc_ui::RelativeCoordinates(0.5, 0.6));
+    options.setText("Options");
     label.setPadding(10.0f);
 
     b.setBodyHighlightColor(sf::Color(200,255,255));
-
+    options.setBodyHighlightColor(sf::Color(200,255,255));
     // RenderQueue.push_back(&label);
     RenderQueue.push_back(&b);
+    RenderQueue.push_back(&options);
+    RenderQueue.push_back(&label);
 
     while (renderTarget.isOpen()) {
 
@@ -121,8 +127,11 @@ int main () { // main thread
 
             }
 
-            renderTarget.draw(label); 
-            renderTarget.draw(b);
+            for (clc_ui::BaseGui * g : RenderQueue) {
+
+                renderTarget.draw(*g);
+
+            }
 
             renderTarget.display();
 
