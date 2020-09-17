@@ -1,6 +1,5 @@
 .vscode/
 obj/**
-clashingcountries
 *.exe
 *.o
 config.lua

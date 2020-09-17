@@ -1,6 +1,6 @@
 #include <clashingcountries/graphics.hpp>
 #include <iostream>
-using namespace clc_ui;
+using namespace clashing_countries::graphics;
 
 void Button::setBodyHighlightColor(sf::Color c) {
 

@@ -5,8 +5,6 @@
 #include <string>
 
 namespace clashing_countries {
-    
-    
 
     class Entity {
 
@@ -33,7 +31,7 @@ namespace clashing_countries {
 
         public:
                 
-
+        
     };
 
     class Game {

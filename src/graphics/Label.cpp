@@ -1,5 +1,5 @@
 #include <clashingcountries/graphics.hpp>
-using namespace clc_ui;
+using namespace clashing_countries::graphics;
 
 Label::Label() {
 
