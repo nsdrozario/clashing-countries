@@ -1,4 +1,4 @@
-#include <clashingcountries/configuration.hpp>
+#include <clashingcountries/core_util/config_vars.hpp>
 
 const std::vector<std::string> settings_ints {
     "screen_width",
@@ -10,7 +10,7 @@ const std::vector<std::string> settings_bools {
 };
 
 const std::vector<std::string> settings_strings {
-
+    
 };
 
 std::map<std::string, int> int_settings;

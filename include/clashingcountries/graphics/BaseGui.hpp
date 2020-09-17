@@ -5,7 +5,7 @@
 #include "Style.hpp"
 #include "RelativeCoordinates.hpp"
 
-namespace clashing_countries { 
+namespace clashing_countries {  // the naming convention is inconsistent here because after clashing_countries::graphics everything will match SFML's naming convention
     namespace graphics {
         class BaseGui : public sf::Transformable, public sf::Drawable {
             public:
