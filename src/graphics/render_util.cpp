@@ -1,5 +1,4 @@
-#include <clashingcountries/graphics.hpp>
-
+#include <clashingcountries/graphics/render_util.hpp>
 sf::Font text_font;
 
 bool init_font() {
