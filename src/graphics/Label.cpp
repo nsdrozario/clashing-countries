@@ -3,7 +3,7 @@ using namespace clashing_countries::graphics;
 
 Label::Label() {
 
-    style = Style(&text_font, sf::Color(0,0,0,150), sf::Color(255,255,255,255), sf::Color(255,255,255,255), 10.0f);
+    style = Style(sf::Color(0,0,0,150), sf::Color(255,255,255,255), sf::Color(255,255,255,255), 10.0f);
     labelBody.setFillColor(style.backgroundColor);
     labelBody.setOutlineColor(style.outlineColor);
     labelBody.setOutlineThickness(style.borderThickness);
@@ -34,15 +34,15 @@ void Label::setText(std::string text) {
 
     labelText.setString(text);
     sf::FloatRect text_size = labelText.getGlobalBounds();
-    labelBody.setSize(sf::Vector2f(text_size.width+padding, text_size.height+padding));
+    labelBody.setSize(sf::Vector2f(text_size.width+style.padding, text_size.height+style.padding));
 
 }
 
 void Label::setPadding(float p) {
 
-    padding = p;
+    style.padding = p;
     sf::FloatRect text_size = labelText.getGlobalBounds();
-    labelBody.setSize(sf::Vector2f(text_size.width+padding, text_size.height+padding));
+    labelBody.setSize(sf::Vector2f(text_size.width+style.padding, text_size.height+style.padding));
 
 }
 
@@ -92,11 +92,13 @@ void Label::KeyboardEvent() {
 
 void Label::draw(sf::RenderTarget &t, sf::RenderStates s) const {
 
-    if (!visible) {
-        return; // do nothing
-    } 
-
-    t.draw(labelBody);
-    t.draw(labelText);
+   if (this->visible) {
+        if (this->style.bodyVisible) {
+            t.draw(labelBody);
+        }
+        if (this->style.outlineVisible) {
+            t.draw(labelText);
+        }   
+    }
 
 }

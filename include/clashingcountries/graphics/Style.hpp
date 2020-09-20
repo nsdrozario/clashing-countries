@@ -19,17 +19,12 @@ namespace clashing_countries {
                 float borderThickness;
                 bool outlineVisible;
                 bool bodyVisible;
-
-                bool visible;
                 float padding;
 
                 // hover properties
                 sf::Color hoverBackgroundColor;
                 sf::Color hoverTextColor;
                 sf::Color hoverOutlineColor;
-
-                RelativeCoordinates coords;
-
                 /*
                 Style() {
                     font = &util::global_font;

@@ -12,7 +12,6 @@ namespace clashing_countries {  // the naming convention is inconsistent here be
                 clashing_countries::graphics::Style style;
                 bool visible = true;
                 bool hovered = false;
-                float padding = 10.0f;
                 int z_index = 0;
                 clashing_countries::graphics::RelativeCoordinates relativePosition;
 
