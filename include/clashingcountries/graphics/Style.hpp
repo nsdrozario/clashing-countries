@@ -21,6 +21,8 @@ namespace clashing_countries {
                 bool bodyVisible;
                 float padding;
 
+                bool focusable = false;
+
                 // hover properties
                 sf::Color hoverBackgroundColor;
                 sf::Color hoverTextColor;
