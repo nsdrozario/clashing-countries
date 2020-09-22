@@ -6,10 +6,7 @@
 namespace clashing_countries {
     namespace game {
         class power_up : public entity {
-            public:
-                int HP;
-                virtual void Attack()=0;
-
+            
         };
     }
 }
