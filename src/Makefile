@@ -1,7 +1,4 @@
-lib_core_util := core_util
-lib_graphics := graphics
-clc_libs := $(lib_core_util) $(lib_graphics)
-
+clc_libs := graphics core_util game
 ifeq ($(OS), Windows_NT)
 	lib_suffix = .dll
 else

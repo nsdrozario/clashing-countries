@@ -22,7 +22,9 @@ sf::FloatRect Button::getGlobalBounds() const {
 
 Button::Button() {
 
-    style = Style(&text_font, sf::Color(255,255,255,255), sf::Color(0,0,0,255), sf::Color(0,0,0,255), 10.0f);
+    style = Style();
+    style.borderThickness = 10.0f;
+
     labelBody.setFillColor(style.backgroundColor);
     labelBody.setOutlineColor(style.outlineColor);
     labelBody.setOutlineThickness(style.borderThickness);
@@ -53,25 +55,21 @@ Button::Button(Style s, std::string text="Default text") {
 
 }
 
-void Button::updateColor() { // this needs to be called by some rendering function
+void Button::MouseHoverEvent() {
 
-    if (hovered) {
+    if (this->hovered) {
 
-        labelBody.setFillColor(bodyHighlightedColor);
-        labelText.setFillColor(textHighlightedColor);
+        labelBody.setFillColor(style.hoverBackgroundColor);
+        labelText.setFillColor(style.hoverTextColor);
+        labelBody.setOutlineColor(style.hoverOutlineColor);
         
     } else {
 
         labelBody.setFillColor(style.backgroundColor);
         labelText.setFillColor(style.textColor);
+        labelBody.setOutlineColor(style.outlineColor);
 
     }
-
-}
-
-void Button::MouseHoverEvent() {
-
-    updateColor();
 
 }
 
@@ -79,10 +77,15 @@ sf::Vector2f Button::getPosition() const {
     return labelBody.getPosition();
 }
 
+void Button::draw(sf::RenderTarget &t, sf::RenderStates s) const {
 
-void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-
-    target.draw(labelBody);
-    target.draw(labelText);
+    if (this->visible) {
+        if (this->style.bodyVisible) {
+            t.draw(labelBody);
+        }
+        if (this->style.outlineVisible) {
+            t.draw(labelText);
+        }   
+    }
 
 }

@@ -7,16 +7,21 @@
 #include <string>
 #include <functional>
 #include <queue>
-
-extern sf::Font text_font;
-
-bool init_font();
-sf::Window gen_window_from_config();
-sf::Text gen_label(std::string text, int size);
+#include <vector>
 
 void draw_to_screen();
 
-extern sf::RenderWindow renderTarget;
+namespace clashing_countries {
+    namespace graphics {
+        class util {
+            public:
+                static sf::RenderWindow renderTarget;
+                static sf::Font global_font;
+                static bool init_font();
+        };
+    }
+}
+
 // extern std::vector<clashing_countries::graphics::BaseGui *> RenderQueue; // probably going to change this to use smart pointers later
 
 #endif
