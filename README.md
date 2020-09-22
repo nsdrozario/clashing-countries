@@ -7,7 +7,8 @@ This is a turn-based multiplayer strategy game, extensible using scripting.
 Requires:
 - Lua 5.3
 - SFML 2.5
-- Sol3
+- sol2 (version 3)
+- nlohmann-json
 
 ## Project Structure
 
