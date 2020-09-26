@@ -9,14 +9,10 @@ namespace clashing_countries {
         class RelativeCoordinates {
 
             public:
-
                 float x; // range from 0-1 as ratio of screen size
                 float y;
-
                 RelativeCoordinates();
                 RelativeCoordinates(float x, float y);
-
-                sf::Vector2f getVector() const;
 
         };
 
