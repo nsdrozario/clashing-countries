@@ -17,3 +17,12 @@ Requires:
 - Core Utilities (`core_util`)
 - Game Logic (`game`)
 - Main Application (`client`)
+
+## Concepts used
+- Object oriented programming
+    - Inheritance
+    - Polymorphism
+- Code organization
+- Multithreading (to be implemented soon)
+- Embedded scripting (currently in a primitive state in the form of config files)
+- Build systems (specifically Make)
