@@ -10,4 +10,4 @@ $(OBJ_DIR)%.o: %.cpp
 	$(CXX) $^ -c -o $@ $(CXXFLAGS)
 
 core_util_lib: $(OBJS)
-	$(CXX) $(OBJS) -shared -o $(BIN_DIR)clashing_countries_core_util_lib$(lib_suffix) $(CXXFLAGS)
+	$(CXX) $(OBJS) -shared -o $(BIN_DIR)libclashing_countries_core_util$(lib_suffix) $(CXXFLAGS)

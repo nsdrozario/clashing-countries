@@ -10,7 +10,7 @@ $(OBJ_DIR)%.o: %.cpp
 	$(CXX) $^ -c -o $@ $(CXXFLAGS)
 
 game_lib: $(OBJS)
-	$(CXX) $(OBJS) -shared -o $(BIN_DIR)clashing_countries_game_lib$(lib_suffix) $(LIBS)
+	$(CXX) $(OBJS) -shared -o $(BIN_DIR)libclashing_countries_game$(lib_suffix) $(LIBS)
 
 .PHONY: clean
 clean:
