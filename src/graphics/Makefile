@@ -11,4 +11,4 @@ $(OBJ_DIR)%.o: %.cpp
 	$(CXX) $^ -c -o $@ $(CXXFLAGS)
 
 graphics_lib: $(OBJS)
-	$(CXX) $(OBJS) -shared -o $(BIN_DIR)clashing_countries_graphics_lib$(lib_suffix) $(LIBS)
+	$(CXX) $(OBJS) -shared -o $(BIN_DIR)libclashing_countries_graphics$(lib_suffix) $(LIBS)
