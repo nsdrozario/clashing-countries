@@ -60,31 +60,6 @@ void Label::setPosition(const sf::Vector2f& position) {
 
 }
 
-void Label::setPosition(RelativeCoordinates position) {
-
-    relativePosition = position;
-    
-    if (this->parent == nullptr) {
-        
-    } else {
-
-    }
-
-    /*
-
-        PSEUDOCODE:
-
-        if (this->parent == nullptr) {
-            calculate global screen coords using screen as parent
-        } else {
-            get height/width of parent + size of parent
-            calculate local coords of this element using parent size
-            finally add global coords of parent to previously calculated local coords
-        }
-
-    */
-    
-}
 
 sf::Vector2f Label::getPosition() const {
     return labelBody.getPosition();

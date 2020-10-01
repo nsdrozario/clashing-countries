@@ -18,9 +18,8 @@ namespace clashing_countries {
                 // setters
                 void setText(std::string text);
                 void setPadding(float p);
-                virtual void setPosition(float x, float y);
+                virtual void setPosition(const float x, const float y);
                 virtual void setPosition(const sf::Vector2f& position);
-                virtual void setPosition(RelativeCoordinates position);
 
                 // getters
                 virtual sf::Vector2f getPosition() const;
