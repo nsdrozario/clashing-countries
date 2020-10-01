@@ -6,6 +6,8 @@ using namespace clashing_countries;
 std::thread game_thread;
 std::thread file_thread;
 
+sf::Event event;
+
 int main (int argc, char *argv[]) {
 
     // test
@@ -25,6 +27,26 @@ int main (int argc, char *argv[]) {
         (bool_settings["fullscreen"]) ? sf::Style::Fullscreen : sf::Style::Default
 
     );
+
+    // graphics::Container c;
+
+
+    while (graphics::util::renderTarget.pollEvent(event)) {
+
+        if (event.type == sf::Event::Closed) {
+            // save data
+            graphics::util::renderTarget.close();
+        } else if (event.type == sf::Event::MouseButtonPressed) {
+            // iterate through all elements that accept mouseclicks and if they are in the same position as the mouse, call its event handler method
+        } else if (event.type == sf::Event::MouseMoved) {
+            // same thing as above except call the handler for mouse movement
+        } else if (event.type == sf::Event::KeyPressed) {
+            // same as above but with keyboard handlers
+        }
+
+
+
+    }
 
     std::cout << "Successful, exiting..." << std::endl;
 
