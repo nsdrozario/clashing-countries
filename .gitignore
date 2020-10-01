@@ -5,3 +5,4 @@ bin/**
 *.o
 config.lua
 TODO
+dist/**

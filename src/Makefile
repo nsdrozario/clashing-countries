@@ -28,7 +28,17 @@ client: core_util graphics game
 
 .PHONY: clean
 clean:
-	rm -rf bin/
-	rm -rf obj/
-	mkdir bin
-	mkdir obj
+	rm -rf ../bin/
+	rm -rf ../obj/
+	mkdir ../bin/
+	mkdir ../obj/
+
+.PHONY: package
+package:
+	mkdir ../dist
+	cp ../bin/. ../dist -r -v
+	cp ../config.lua ../dist
+	cp ../LICENSE ../dist
+	cp ../README.md ../dist
+	cp ../resource ../dist -r -v
+	cp ../font -r -v ../dist
