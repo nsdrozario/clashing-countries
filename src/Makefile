@@ -34,7 +34,7 @@ clean:
 	mkdir ../obj/
 
 .PHONY: package
-package:
+package: client
 	mkdir ../dist
 	cp ../bin/. ../dist -r -v
 	cp ../config.lua ../dist
