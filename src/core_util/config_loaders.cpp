@@ -2,9 +2,9 @@
 #include <clashingcountries/core_util/config_vars.hpp>
 #include <iostream>
 
-using namespace clashing_countries::core_utils;
+using namespace clashing_countries;
 
-void load_config(std::string file_path) {
+void core_utils::load_config(std::string file_path) {
 
     sol::state l;
     l.script_file(file_path); // no libraries have been loaded because we only want to read some variables

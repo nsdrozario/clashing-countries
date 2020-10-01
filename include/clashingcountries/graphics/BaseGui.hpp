@@ -12,15 +12,22 @@ namespace clashing_countries {  // the naming convention is inconsistent here be
                 clashing_countries::graphics::Style style;
                 bool visible = true;
                 bool hovered = false;
-                int z_index = 0;
+                int zIndex = 0;
+                BaseGui *parent = nullptr;
+
                 clashing_countries::graphics::RelativeCoordinates relativePosition;
 
                 BaseGui();
 
+                void setParent(BaseGui *g);
+                BaseGui *getParent() const;
+
                 virtual sf::FloatRect getGlobalBounds() const = 0;
+                virtual sf::Vector2f getVector() const = 0;
                 virtual void MouseClickEvent() = 0;
                 virtual void MouseHoverEvent() = 0;
                 virtual void KeyboardEvent() = 0;
+
         };
     }
 }
