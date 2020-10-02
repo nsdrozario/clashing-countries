@@ -20,6 +20,7 @@ namespace clashing_countries {
                 void setPadding(float p);
                 virtual void setPosition(const float x, const float y);
                 virtual void setPosition(const sf::Vector2f& position);
+                // virtual void setPosition(const RelativeCoordinates &position);
 
                 // getters
                 virtual sf::Vector2f getPosition() const;

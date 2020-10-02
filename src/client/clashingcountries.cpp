@@ -12,7 +12,7 @@ int main (int argc, char *argv[]) {
 
     // test
 
-    graphics::util::init_font();
+    clashing_countries::graphics::util::init_font();
     core_utils::load_config("config.lua");
 
     graphics::util::renderTarget.create (
@@ -28,7 +28,7 @@ int main (int argc, char *argv[]) {
 
     );
 
-    // graphics::Container c;
+    graphics::Container c ();
 
 
     while (graphics::util::renderTarget.pollEvent(event)) {

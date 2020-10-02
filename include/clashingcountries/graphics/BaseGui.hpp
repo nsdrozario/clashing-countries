@@ -20,9 +20,9 @@ namespace clashing_countries {  // the naming convention is inconsistent here be
                 BaseGui();
 
                 void setParent(BaseGui *g);
-                virtual void setPosition(const float x, const float y)=0;
-                virtual void setPosition(const sf::Vector2f &position)=0;
-                virtual void setPosition(const RelativeCoordinates &position);
+                virtual void setPosition(const float x, const float y);
+                virtual void setPosition(const sf::Vector2f& position);
+                // virtual void setPosition(const RelativeCoordinates &position);
 
                 BaseGui *getParent() const;
 

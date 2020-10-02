@@ -16,6 +16,18 @@ BaseGui *BaseGui::getParent() const {
     return this->parent;
 }
 
+void BaseGui::setPosition(const float x, const float y) {
+
+
+
+}
+
+void BaseGui::setPosition(const sf::Vector2f &position) {
+
+
+}
+
+/*
 void BaseGui::setPosition(const RelativeCoordinates &position) {
 
     this->relativePosition = position;
@@ -36,4 +48,5 @@ void BaseGui::setPosition(const RelativeCoordinates &position) {
     }
     
 }
+*/
 

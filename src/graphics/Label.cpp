@@ -1,4 +1,7 @@
 #include <clashingcountries/graphics.hpp>
+#include <clashingcountries/graphics/BaseGui.hpp>
+#include <clashingcountries/graphics/Label.hpp>
+
 using namespace clashing_countries::graphics;
 
 Label::Label() {

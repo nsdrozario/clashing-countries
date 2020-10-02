@@ -16,6 +16,8 @@ namespace clashing_countries {
             public:
                 std::set<BaseGui *, ZIndexSort> contents;
 
+                Container();
+
                 void addElement(BaseGui *g);
                 void removeElement(BaseGui *g);
                 
