@@ -9,7 +9,7 @@ namespace clashing_countries {
     namespace graphics {
 
         struct ZIndexSort {
-            bool operator() (const BaseGui *g1, const BaseGui *g2);
+            bool operator() (const BaseGui *g1, const BaseGui *g2) const;
         };
 
         class Container : public BaseGui {

@@ -1,7 +1,7 @@
 #include <clashingcountries/graphics.hpp>
 using namespace clashing_countries::graphics;
 
-bool ZIndexSort::operator() (const BaseGui *g1, const BaseGui *g2) {
+bool ZIndexSort::operator() (const BaseGui *g1, const BaseGui *g2) const {
     return g1->zIndex > g2->zIndex;
 }
 
@@ -13,7 +13,6 @@ Container::Container() {
     this->containerBody.setOutlineThickness(this->style.borderThickness);
 
 }
-
 
 void Container::MouseClickEvent() {
 
@@ -106,9 +105,9 @@ void Container::setPosition(const sf::Vector2f &position) {
 
 void Container::draw(sf::RenderTarget &t, sf::RenderStates s) const {
 
-    t.draw(containerBody);
+    t.draw(this->containerBody);
 
-    for (BaseGui *g : contents) {
+    for (BaseGui *g : this->contents) {
         t.draw(*g);
     }       
 

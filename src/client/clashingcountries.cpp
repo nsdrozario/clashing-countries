@@ -3,8 +3,12 @@
 #include <clashingcountries/client/client_main.hpp>
 using namespace clashing_countries;
 
-std::thread game_thread;
-std::thread file_thread;
+// std::thread game_thread;
+// std::thread file_thread;
+
+// define static members
+sf::Font clashing_countries::graphics::util::global_font;
+sf::RenderWindow clashing_countries::graphics::util::renderTarget;
 
 sf::Event event;
 
@@ -28,8 +32,11 @@ int main (int argc, char *argv[]) {
 
     );
 
+    
     graphics::Container c;
-
+    graphics::Label label;
+    label.setText("Clashing Countries");
+    c.contents.insert(&label);
 
     while (graphics::util::renderTarget.pollEvent(event)) {
 
@@ -44,9 +51,9 @@ int main (int argc, char *argv[]) {
             // same as above but with keyboard handlers
         }
 
+        graphics::util::renderTarget.draw(label);
 
-
-    }
+    } 
 
     std::cout << "Successful, exiting..." << std::endl;
 
