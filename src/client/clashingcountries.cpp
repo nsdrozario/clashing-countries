@@ -28,7 +28,7 @@ int main (int argc, char *argv[]) {
 
     );
 
-    graphics::Container c ();
+    graphics::Container c;
 
 
     while (graphics::util::renderTarget.pollEvent(event)) {

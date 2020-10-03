@@ -35,6 +35,7 @@ clean:
 
 .PHONY: package
 package: client
+	rm -rf ../dist
 	mkdir ../dist
 	cp ../bin/. ../dist -r -v
 	cp ../config.lua ../dist

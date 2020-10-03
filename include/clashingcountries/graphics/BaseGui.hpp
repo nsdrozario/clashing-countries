@@ -27,7 +27,8 @@ namespace clashing_countries {  // the naming convention is inconsistent here be
                 BaseGui *getParent() const;
 
                 virtual sf::FloatRect getGlobalBounds() const = 0;
-                virtual sf::Vector2f getVector() const = 0;
+                virtual sf::Vector2f getPosition() const = 0;
+                
                 virtual void MouseClickEvent() = 0;
                 virtual void MouseHoverEvent() = 0;
                 virtual void KeyboardEvent() = 0;
