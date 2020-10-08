@@ -34,26 +34,29 @@ int main (int argc, char *argv[]) {
 
     
     graphics::Container c;
-    graphics::Label label;
-    label.setText("Clashing Countries");
-    c.contents.insert(&label);
 
-    while (graphics::util::renderTarget.pollEvent(event)) {
-
-        if (event.type == sf::Event::Closed) {
-            // save data
-            graphics::util::renderTarget.close();
-        } else if (event.type == sf::Event::MouseButtonPressed) {
-            // iterate through all elements that accept mouseclicks and if they are in the same position as the mouse, call its event handler method
-        } else if (event.type == sf::Event::MouseMoved) {
-            // same thing as above except call the handler for mouse movement
-        } else if (event.type == sf::Event::KeyPressed) {
-            // same as above but with keyboard handlers
+    while (graphics::util::renderTarget.isOpen()) {
+        while (graphics::util::renderTarget.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                // save data
+                graphics::util::renderTarget.close();
+            } else if (event.type == sf::Event::MouseButtonPressed) {
+                // iterate through all elements that accept mouseclicks and if they are in the same position as the mouse, call its event handler method
+            } else if (event.type == sf::Event::MouseMoved) {
+                // same thing as above except call the handler for mouse movement
+            } else if (event.type == sf::Event::KeyPressed) {
+                // same as above but with keyboard handlers
+            }
         }
 
-        graphics::util::renderTarget.draw(label);
+        graphics::util::renderTarget.clear(sf::Color::Black);
 
-    } 
+        // do stuff
+
+        graphics::util::renderTarget.display();
+
+    }
+    
 
     std::cout << "Successful, exiting..." << std::endl;
 
