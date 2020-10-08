@@ -3,9 +3,7 @@
 using namespace clashing_countries::graphics;
 
 BaseGui::BaseGui() {
-
     style = Style();
-
 }
 
 void BaseGui::setParent(BaseGui *g) {
@@ -18,12 +16,9 @@ BaseGui *BaseGui::getParent() const {
 
 void BaseGui::setPosition(const float x, const float y) {
 
-
-
 }
 
 void BaseGui::setPosition(const sf::Vector2f &position) {
-
 
 }
 

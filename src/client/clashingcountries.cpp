@@ -3,12 +3,10 @@
 #include <clashingcountries/client/client_main.hpp>
 using namespace clashing_countries;
 
-// std::thread game_thread;
-// std::thread file_thread;
+
 
 // define static members
-sf::Font clashing_countries::graphics::util::global_font;
-sf::RenderWindow clashing_countries::graphics::util::renderTarget;
+
 
 sf::Event event;
 
