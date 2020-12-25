@@ -1,5 +1,7 @@
 # Clashing Countries
 
+**For the time being, development has stopped on this repository. However, this project is not finished. New work is now being done at** https://github.com/nsdrozario/clashing-countries-new.
+
 This is a turn-based multiplayer strategy game, extensible using scripting.
 
 ## Dependencies
